@@ -54,6 +54,34 @@ class LinkedList {
     }
   }
 
+  removeAt(index) {
+    // console.log(index >= this.length());
+    if (index < 0 || index >= this.length()) {
+      console.log("removeAt");
+      return null;
+    }
+
+    if (index === 0) {
+      const nextNode = this.head.next;
+      this.head.next = null;
+      this.head = nextNode;
+    } else if (index === this.length() - 1) {
+      // as last index is 1 less
+      let currentNode = this.head;
+      // while()
+      for (let index = 0; index < this.length() - 2; index++) {
+        // const element = array[index];
+        console.log(currentNode);
+        currentNode = currentNode.next;
+      }
+      this.tail = currentNode;
+      this.tail.next = null;
+    }
+    for (let i = 0; i < this.length(); i++) {
+      // const element = array[i];
+    }
+  }
+
   pop() {
     if (this.tail === null && this.head === null) {
       return null;
