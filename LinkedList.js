@@ -20,6 +20,29 @@ class LinkedList {
     }
   }
 
+  insertAt(data, index) {
+    if (index < 0 || index >= this.length()) {
+      return null;
+    }
+    const newNode = new Node(data);
+    let currentNum = 0;
+    let currentNode = this.head;
+    while (currentNode.next !== null) {
+      if (index === 0) {
+        this.head = newNode;
+        newNode.next = currentNode;
+      } else {
+        if (currentNum === index - 1) {
+          newNode.next = currentNode.next;
+          currentNode.next = newNode;
+        }
+      }
+      const nextNode = currentNode.next;
+      currentNode = nextNode;
+      currentNum++;
+    }
+  }
+
   pop() {
     if (this.tail === null && this.head === null) {
       return null;
