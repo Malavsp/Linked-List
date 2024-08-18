@@ -20,6 +20,17 @@ class LinkedList {
     }
   }
 
+  prepend(data) {
+    const newNode = new Node(data);
+    if (this.head === null) {
+      this.head = newNode;
+    } else {
+      const nextNode = this.head;
+      this.head = newNode;
+      this.head.next = nextNode;
+    }
+  }
+
   insertAt(data, index) {
     if (index < 0 || index >= this.length()) {
       return null;
